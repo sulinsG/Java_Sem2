@@ -12,8 +12,13 @@ public class Professor {
 
     //2. get un set funkcijas
     public void setName(String name) {
-        this.name = name;
-    }
+        if(name.matches("[A-Z]{1}[a-z]+") ){
+            this.name = name;
+        }
+        else
+            this.name = "notknown";
+        }
+
 
     public String getSurname() {
         return surname;
