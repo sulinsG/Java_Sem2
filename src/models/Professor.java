@@ -10,7 +10,7 @@ public class Professor {
     private ProfDegree degree;
     private static long p_ID;
 
-    //2. get funkcijas
+    //2.1 get funkcijas
     public ProfDegree getDegree() {
         return degree;
     }
@@ -21,7 +21,7 @@ public class Professor {
         return p_ID;
     }
 
-    //3. set funkcijas
+    //2.2 set funkcijas
     public void setName(String name) {
         if(name != null && name.matches("[A-ZĀĒŪĪĻĶĢŠŽČŅ]{1}[a-zēūīāšģķļņčž]+"))//\p{L}+
         {
@@ -52,5 +52,23 @@ public class Professor {
         Professor.p_ID = p_ID;
     }
 
+    //3.konstruktori
+    public Professor()
+    {
+        setName("Test");
+        setSurname("Professor");
+        setDegree(ProfDegree.doctor);
+    }
+
+    //Professor prof1 = new Professor("Gatis", "Sulins", ProfDegree.bachelors);
+    public Professor(String name, String surname, ProfDegree degree)
+    {//veic gan validaciju, gan saglabasanu
+        setName(name);
+        setSurname(surname);
+        setDegree(degree);
+    }
+
+
+    
 
 }
