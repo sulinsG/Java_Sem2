@@ -63,16 +63,29 @@ public class Grade {
     //3. konstruktori
     public Grade()
     {
-        setCourse();
-        setGradeValue();
-        setStudent();
+        setGradeValue((byte)0);
+        setStudent(new Student());
         setId();
+
     }
-    public Grade(Course course, )
+    public Grade(Course course, Student student, byte gradeValue)
     {
+        setCourse(course);
+        setGradeValue(gradeValue);
+        setStudent(student);
+        setId();
 
     }
 
     //4. tostring funkcija
 
+    @Override
+    public String toString() {
+        return "Grade{" +
+                "id=" + id +
+                ", gradeValue=" + gradeValue +
+                ", student=" + student +
+                ", course=" + course +
+                '}';
+    }
 }
