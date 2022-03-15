@@ -19,6 +19,9 @@ public class Professor {
     public String getSurname() {
         return surname;
     }
+    public int getId() {
+        return id;
+    }
 
 
     //2.2 set funkcijas
@@ -49,9 +52,6 @@ public class Professor {
             this.degree = ProfDegree.master;
     }
 
-    public int getId() {
-        return id;
-    }
 
     private void setId() {
         this.id = idCounter;
