@@ -82,4 +82,13 @@ public class Course {
 
     //4. toString funkcija
 
+    @Override
+    public String toString() {
+        return "Course{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", creditPoints=" + creditPoints +
+                ", professor=" + professor +
+                '}';
+    }
 }
