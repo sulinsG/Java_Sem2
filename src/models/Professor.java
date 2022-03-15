@@ -8,7 +8,9 @@ public class Professor {
     private String name;
     private String surname;
     private ProfDegree degree;
-    private static long p_ID;
+
+    private int id;
+    private static int idCounter = 0;
 
     //2.1 get funkcijas
     public ProfDegree getDegree() {
@@ -17,9 +19,7 @@ public class Professor {
     public String getSurname() {
         return surname;
     }
-    public static long getP_ID() {
-        return p_ID;
-    }
+
 
     //2.2 set funkcijas
     public void setName(String name) {
@@ -48,8 +48,14 @@ public class Professor {
         else
             this.degree = ProfDegree.master;
     }
-    public static void setP_ID(long p_ID) {
-        Professor.p_ID = p_ID;
+
+    public int getId() {
+        return id;
+    }
+
+    private void setId() {
+        this.id = idCounter;
+        idCounter++;
     }
 
     //3.konstruktori
