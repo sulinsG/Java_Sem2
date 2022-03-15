@@ -68,7 +68,15 @@ public class Professor {
         setDegree(degree);
     }
 
+    //4.toString
+    public String toString()
+    {
+        return name + " " + surname + " " + degree;
+    }
 
-    
+
+
+
+
 
 }
