@@ -54,18 +54,32 @@ public class Course {
     }
 
     public void setProfessor(Professor professor) {
-        if (professor != null &&)
-        {
+        if (professor != null) {
             this.professor = professor;
-        }
-        else
-        {
+        } else {
             this.professor = new Professor();
         }
-
+    }
 
     //3. konstruktori
+    public Course()
+    {
+       setId();
+       setTitle("Testa kurss");
+       setCreditPoints((byte) 2);
+       setProfessor(new Professor());
+    }
+    public Course(String title, byte creditPoints, Professor professor)
+    {
+        setId();
+        setTitle(title);
+        setCreditPoints(creditPoints);
+        setProfessor(professor);
+    }
+
+
 
 
     //4. toString funkcija
+
 }
