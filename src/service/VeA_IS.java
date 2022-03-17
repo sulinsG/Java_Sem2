@@ -79,6 +79,22 @@ public class VeA_IS {
     }
 
 
+    //CRUD Course
+    // C - Create
+    private static boolean createNewCourse(String title, int creditPoints, Professor professor)
+    {
+        Course course = new Course(title, creditPoints, professor);
+        if(courseLists.contains(course.getTitle() && course.getCreditPoints()))
+        {
+            return false;
+        }
+        else
+        {
+            courseLists.add(course);
+            return true;
+        }
+    }
+
     private static void averageGradeCourse(Course course)
     {
         int gradeCounter = 0;

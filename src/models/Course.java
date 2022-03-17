@@ -1,12 +1,14 @@
 package models;
 
 
+import java.util.Objects;
+
 public class Course {
     //1. mainīgie
     private int id;
     private static int idCounter = 1000;
     private String title;
-    private byte creditPoints;
+    private int creditPoints;
     private Professor professor;
 
     //2.1. get funkcijas
@@ -20,7 +22,7 @@ public class Course {
         return title;
     }
 
-    public byte getCreditPoints() {
+    public int getCreditPoints() {
         return creditPoints;
     }
 
@@ -42,7 +44,7 @@ public class Course {
             this.title = "unknown";
     }
 
-    public void setCreditPoints(byte creditPoints) {
+    public void setCreditPoints(int creditPoints) {
         if(creditPoints > 0 && creditPoints <= 20)
         {
             this.creditPoints = creditPoints;
@@ -66,10 +68,10 @@ public class Course {
     {
        setId();
        setTitle("Testa kurss");
-       setCreditPoints((byte) 2);
+       setCreditPoints(2);
        setProfessor(new Professor());
     }
-    public Course(String title, byte creditPoints, Professor professor)
+    public Course(String title, int creditPoints, Professor professor)
     {
         setId();
         setTitle(title);
@@ -91,4 +93,17 @@ public class Course {
                 ", professor=" + professor +
                 '}';
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        Course otherCourse = (Course)o;
+        if(title.equals(otherCourse.getTitle()) && title.equals(otherCourse.getCreditPoints()))
+        {
+            return true;
+        }
+        else
+            return false;
+    }
+
 }
