@@ -34,7 +34,7 @@ public class Course {
         this.id = idCounter++;
     }
     public void setTitle(String title) {
-        if(title != null && title.isEmpty() && title.matches("[A-ZĀĒŪĪĻĶĢŠŽČŅ]{1}[\\s\\d a-zēūīāšģķļņčžA-ZĀĒŪĪĻĶĢŠŽČŅ]+"))
+        if(title != null && !title.isEmpty() && title.matches("[A-ZĀĒŪĪĻĶĢŠŽČŅ]{1}[\\s\\d a-zēūīāšģķļņčžA-ZĀĒŪĪĻĶĢŠŽČŅ]+"))
         {
             this.title = title;
         }

@@ -74,15 +74,15 @@ public class Professor {
         setDegree(degree);
     }
 
-    //4.toString
-    public String toString()
-    {
-        return name + " " + surname + " " + degree;
+    @Override
+    public String toString() {
+        return "Professor{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", degree=" + degree +
+                ", id=" + id +
+                '}';
     }
-
-
-
-
 
 
 }
