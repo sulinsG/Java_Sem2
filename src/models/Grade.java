@@ -5,7 +5,7 @@ public class Grade {
     private int id;
     private static int idCounter = 100000;
 
-    private byte gradeValue;
+    private int gradeValue;
     private Student student;
     private Course course;
     //2.1 get funkcijas
@@ -14,7 +14,7 @@ public class Grade {
         return id;
     }
 
-    public byte getGradeValue() {
+    public int getGradeValue() {
         return gradeValue;
     }
 
@@ -33,7 +33,7 @@ public class Grade {
         idCounter++;
     }
 
-    public void setGradeValue(byte gradeValue) {
+    public void setGradeValue(int gradeValue) {
         if(gradeValue > 0 && gradeValue <=10)
         {
             this.gradeValue = gradeValue;
@@ -63,12 +63,12 @@ public class Grade {
     //3. konstruktori
     public Grade()
     {
-        setGradeValue((byte)0);
+        setGradeValue(0);
         setStudent(new Student());
         setId();
 
     }
-    public Grade(Course course, Student student, byte gradeValue)
+    public Grade(Course course, Student student, int gradeValue)
     {
         setCourse(course);
         setGradeValue(gradeValue);

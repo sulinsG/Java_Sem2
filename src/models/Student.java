@@ -37,6 +37,6 @@ public class Student extends Person{
 
     @Override
     public String toString() {
-        return id + " " + super.getName() + " " + super.getSurname();
+        return super.getName() + " " + super.getSurname() +"(ID: " + id + ")";
     }
 }
