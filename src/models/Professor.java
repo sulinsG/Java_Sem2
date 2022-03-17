@@ -3,12 +3,9 @@ package models;
 
 import org.w3c.dom.ls.LSOutput;
 
-public class Professor {
+public class Professor extends Person {
     //1. mainigie
-    private String name;
-    private String surname;
     private ProfDegree degree;
-
     private int id;
     private static int idCounter = 0;
 
@@ -16,31 +13,12 @@ public class Professor {
     public ProfDegree getDegree() {
         return degree;
     }
-    public String getSurname() {
-        return surname;
-    }
     public int getId() {
         return id;
     }
 
 
-    //2.2 set funkcijas
-    public void setName(String name) {
-        if(name != null && name.matches("[A-ZĀĒŪĪĻĶĢŠŽČŅ]{1}[a-zēūīāšģķļņčž]+"))//\p{L}+
-        {
-            this.name = name;
-        }
-        else
-            this.name = "notknown";
-        }
-    public void setSurname(String surname) {
-        if(surname != null && surname.matches("[A-ZĀĒŪĪĻĶĢŠŽČŅ]{1}[a-zēūīāšģķļņčž]+"))//\p{L}+
-        {
-            this.surname = surname;
-        }
-        else
-            this.surname = "notknown";
-    }
+
 
 
     public void setDegree(ProfDegree degree) {
@@ -61,27 +39,22 @@ public class Professor {
     //3.konstruktori
     public Professor()
     {
-        setName("Test");
-        setSurname("Professor");
+        super();    // Person() klases bezargumenta konstruktors
+        setId();
         setDegree(ProfDegree.doctor);
     }
 
     //Professor prof1 = new Professor("Gatis", "Sulins", ProfDegree.bachelors);
     public Professor(String name, String surname, ProfDegree degree)
     {//veic gan validaciju, gan saglabasanu
-        setName(name);
-        setSurname(surname);
+        super(name,surname);
+        setId();
         setDegree(degree);
     }
 
     @Override
     public String toString() {
-        return "Professor{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", degree=" + degree +
-                ", id=" + id +
-                '}';
+        return id + " " + super.getName() + " " + super.getSurname() + " " + degree;
     }
 
 

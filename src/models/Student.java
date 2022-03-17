@@ -1,11 +1,10 @@
 package models;
 
-public class Student {
+public class Student extends Person{
     //1. mainīgie
     private int id;
     private static int idCounter = 10000;
-    private String name;
-    private String surname;
+
 
     //2.1 get funckijas
 
@@ -13,32 +12,8 @@ public class Student {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
 
 
-    //2.2 set funkcijas
-    public void setName(String name) {
-        if(name != null && name.matches("[A-ZĀĒŪĪĻĶĢŠŽČŅ]{1}[a-zēūīāšģķļņčž]+"))//\p{L}+
-        {
-            this.name = name;
-        }
-        else
-            this.name = "notknown";
-    }
-    public void setSurname(String surname) {
-        if(surname != null && surname.matches("[A-ZĀĒŪĪĻĶĢŠŽČŅ]{1}[a-zēūīāšģķļņčž]+"))//\p{L}+
-        {
-            this.surname = surname;
-        }
-        else
-            this.surname = "notknown";
-    }
     private void setId() {
         this.id = idCounter;
         idCounter++;
@@ -47,15 +22,13 @@ public class Student {
     //3. konstruktori
     public Student()
     {
-        setName("Test");
-        setSurname("Mctesty");
+        super();
         setId();
     }
 
-    public Student(String name, String Surname)
+    public Student(String name, String surname)
     {
-        setName(name);
-        setSurname(Surname);
+        super(name,surname);
         setId();
     }
 
@@ -64,10 +37,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                '}';
+        return id + " " + super.getName() + " " + super.getSurname();
     }
 }
