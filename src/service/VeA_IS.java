@@ -84,7 +84,7 @@ public class VeA_IS {
     private static boolean createNewCourse(String title, int creditPoints, Professor professor)
     {
         Course course = new Course(title, creditPoints, professor);
-        if(courseLists.contains(course.getTitle() && course.getCreditPoints()))
+        if(courseLists.contains(course))
         {
             return false;
         }
@@ -93,6 +93,65 @@ public class VeA_IS {
             courseLists.add(course);
             return true;
         }
+    }
+    //R - read -all
+    private static ArrayList<Course> getAllCourses()
+    {
+        return courseLists;
+    }
+
+    // R - read by ID
+    private static Course getCourseById(int courseId)
+    {
+        if(courseId >= 1000 && courseId < 10000) {
+            for (Course course : courseLists) {
+                if (course.getId() == courseId) {
+                    return course;
+                }
+
+            }
+        }
+
+        return new Course();
+    }
+
+    //U - update
+
+    private  static boolean updateCourseById(int courseId, String updateTitle, int updateCreditPoints, Professor updateProfessor)
+    {
+
+            if(courseId >= 1000 && courseId < 10000) {
+                for (Course course : courseLists) {
+                    if (course.getId() == courseId) {
+                        course.setTitle(updateTitle);
+                        course.setCreditPoints(updateCreditPoints);
+                        course.setProfessor(updateProfessor);
+                        return true;
+                    }
+
+                }
+            }
+
+        return  false;
+    }
+
+    //D - delete
+
+    private  static  boolean deleteCourseById(int courseId)
+    {
+
+        if(courseId >= 1000 && courseId < 10000) {
+            for (Course course : courseLists)
+            {
+                if (course.getId() == courseId)
+                {
+                    courseLists.remove(course);
+                    return true;
+                }
+            }
+        }
+
+        return  false;
     }
 
     private static void averageGradeCourse(Course course)
